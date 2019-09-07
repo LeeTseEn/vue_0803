@@ -1,5 +1,38 @@
+@import "./reset";
 @import "./variable";
+@import "./commonStyle";
+@import "./flexbox";
+@import "./dataAttribute";
+
 
 body{
-    background: $badyColor;
+    background: $riceWhite;
+}
+
+.menu{
+    width: 100vw;
+    height: 10vh;
+    background: $carrotOrange;
+    li{
+        @include boxSizing;
+        color: $riceWhite;
+        padding: 1vh 0.5vw;
+        margin: 0 5vw;
+        border: 1px solid $riceWhite;
+    }
+}
+
+.container{
+    margin: 5vh 0;
+    input{
+        margin: 0 1%;
+    }
+    &:after{ 
+      content: "";
+      display: block;
+      padding: 1px;
+      margin: 2vh 0;
+      width: 100%;
+      background: $dark;
+    }
 }
