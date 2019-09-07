@@ -1,18 +1,29 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+      <div class="page api_temp">
+    <ul class="menu row horizontal wrap center icon-sets" data-row-split="1">
+      <li>Home</li>
+      <li>Order</li>
+      <li>Message</li>
+      <li>Setting</li>
+    </ul>
+    <div class="container">
+      <input type="search" id="search" placeholder="Search..." />
+      <input type="date" name="bday" />
+    </div>
+    <router-view />
+  </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+
 
 export default {
   name: "home",
   components: {
-    HelloWorld
+
   }
 };
 </script>
