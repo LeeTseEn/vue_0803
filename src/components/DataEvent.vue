@@ -16,16 +16,16 @@
       clearable
       @change="handleInputChange"
     />
-    <!-- <el-checkbox :indeterminate="islnd" v-model="checkAll" @change="handleCheckAll">Select All</el-checkbox> -->
+    <el-checkbox :indeterminate="isInd" v-model="checkAll" @change="handleCheckAll">Select All</el-checkbox>
     <div class="input_inner">
-      <!-- <el-checkbox-group v-model="checked" @change="handleChecked">
+      <el-checkbox-group v-model="checked" @change="handleChecked">
         <el-checkbox
           v-for="(item, index) in checkItems"
           :label="item.value"
           :name="item.label"
           :key="index"
         >{{item.label}}</el-checkbox>
-      </el-checkbox-group>-->
+      </el-checkbox-group>
     </div>
     <br />
     <h2>戰鬥後增加的絆點數</h2>
@@ -49,7 +49,7 @@
     <div v-for="(item, index) in battleData" :key="index">
       {{item.name+' '}}
       {{'絆LV' + item.bound.level + ' '}}
-      <!-- {{ handleLevelUpMsg[index] }} -->
+      {{ handleLevelUpMsg[index] }}
       {{'點數' + item.bound.point}}
     </div>
     <br />
@@ -132,20 +132,20 @@ export default {
     handlechecked() {
       console.log(this.checked);
     },
-    // handleCheckAll() {
-    //   this.checkAll
-    //     ? this.checkItems.forEach(arr => {
-    //         this.checked.push(arr.value);
-    //       })
-    //     : (this.checked = []);
-    //   this.islnd = false;
-    //   console.log(this.checked);
-    // },
-    // handleChecked(val) {
-    //   this.checkAll = val.length === this.checkItems.length;
-    //   this.islnd = val.length > 0 && val.length < this.checkItems.length;
-    //   console.log(this.checked);
-    // }
+    handleCheckAll() {
+      this.checkAll
+        ? this.checkItems.forEach(arr => {
+            this.checked.push(arr.value);
+          })
+        : (this.checked = []);
+      this.isInd = false;
+      console.log(this.checked);
+    },
+    handleChecked(val) {
+      this.checkAll = val.length === this.checkItems.length;
+      this.isInd = val.length > 0 && val.length < this.checkItems.length;
+      console.log(this.checked);
+    },
     battleFinish() {
       let newPoint = 0;
       let newLevel = 0;

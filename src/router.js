@@ -12,9 +12,14 @@ export default new Router({
       component: Home,
       children:[
         {
-          path: 'data-event',
-          name: 'dataEvent',
+          path: '/data-event',
+          name: 'DataEvent',
           component: () => import('./components/DataEvent.vue')
+        },
+        {
+          path: '/ca-chya',
+          name: 'CaChya',
+          component: () => import('./components/CaChya.vue')
         }
       ]
     },
