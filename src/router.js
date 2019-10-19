@@ -20,6 +20,16 @@ export default new Router({
           path: '/ca-chya',
           name: 'CaChya',
           component: () => import('./components/CaChya.vue')
+        },
+        {
+          path: 'localstorange',
+          name: 'LocalStorange',
+          component: () => import('./components/LocalStorange.vue'),
+        },
+        {
+          path: 'localstorange_card_result',
+          name: 'LocalStorangeCardResult',
+          component: () => import('./components/LocalStorangeCardResult.vue')
         }
       ]
     },
