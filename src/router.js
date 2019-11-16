@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import Cookies from 'js-cookie'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -30,6 +31,26 @@ export default new Router({
           path: 'localstorange_card_result',
           name: 'LocalStorangeCardResult',
           component: () => import('./components/LocalStorangeCardResult.vue')
+        },
+        {
+          path: 'LogIn',
+          name: 'LogIn',
+          component: () => import('./components/Login.vue')
+        },
+        {
+          path: 'FgoLocal',
+          name: 'FgoLocal',
+          component: () => import('./components/FgoLocal.vue')
+        },
+        {
+          path: 'Regexp',
+          name: 'Regexp',
+          component: () => import('./components/Regexp.vue')
+        },
+        {
+          path: 'Regular',
+          name: 'Regular',
+          component: () => import('./components/Regular.vue')
         }
       ]
     },
@@ -40,3 +61,5 @@ export default new Router({
     }
   ]
 })
+
+export default router
