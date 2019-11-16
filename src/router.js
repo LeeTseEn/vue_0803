@@ -51,6 +51,11 @@ const router = new Router({
           path: 'Regular',
           name: 'Regular',
           component: () => import('./components/Regular.vue')
+        },
+        {
+          path: 'VueI18n',
+          name: 'VueI18n',
+          component: () => import('./components/VueI18n.vue')
         }
       ]
     },
