@@ -56,7 +56,17 @@ const router = new Router({
           path: 'VueI18n',
           name: 'VueI18n',
           component: () => import('./components/VueI18n.vue')
-        }
+        },
+        {
+          path: 'VuexTemp',
+          name: 'VuexTemp',
+          component: () => import('./components/VuexTemp.vue')
+        },
+        {
+          path: 'VuexTempDetail',
+          name: 'VuexTempDetail',
+          component: () => import('./components/VuexTempDetail.vue')
+        },
       ]
     },
     {
