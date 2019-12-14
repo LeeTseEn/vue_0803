@@ -3,26 +3,25 @@ const state = {
   flag: '',
   epilogue: ''
 }
-
 const getters = {
   mapGetTotal: state => {
-    state.total
     console.log('vuex total: ', state.total)
+    return state.total
   },
   mapGetFlag: state => {
-    state.flag
     console.log('vuex flag: ', state.flag)
+    return state.flag
+
   },
   mapGetEpilogue: state => {
-    state.epilogue
     console.log('vuex epilogue: ', state.epilogue)
+    return state.epilogue
   }
 }
-
 const mutations = {
   changeTotal(state, val) {
     state.total = val
-    console.log('vuex  total is: ', state.total)
+    console.log('vuex total is: ', state.total)
   },
   changeFlag(state, val) {
     if (state.total <= 5) {
@@ -39,27 +38,25 @@ const mutations = {
   changeEpilogue(state) {
     switch (state.flag) {
       case 'a':
-        state.epilogue = 'bad end'
+        state.epilogue = '日常 END'
         break
       case 'b':
-        state.epilogue = 'bad end'
+        state.epilogue = 'True END'
         break
       case 'c':
-        state.epilogue = 'bad end'
+        state.epilogue = '聖堂教会 END'
         break
       case 'd':
-        state.epilogue = 'bad end'
+        state.epilogue = 'イリヤ添い寝 END'
         break
     }
   }
 }
-
 const actions = {
   setFlag(val) {
     val.commit('changeFlag')
   }
 }
-
 export default {
   state,
   getters,

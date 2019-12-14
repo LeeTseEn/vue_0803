@@ -64,30 +64,20 @@ export default {
     },
 
     computed: {
-      ...mapGetters(["mapGetTotal"]),
-
-      getTotalScore() {
-        let result = 
-          this.flagItem.selectA + this.flagItem.selectB + this.flagItem.selectC ;
-          return result;
-      }
-    },
-
-
-    methods: {
-      ...mapActions(['setFlag']),
-      ...mapMutations(['changeTotal', 'changFlag', 'changeEpilogue' ]),
-      onRadioChange() {
-        this.changeTotal(this.getTotalScore);
-        this.setFlag();
-        this.changeEpilogue();
-      }
-    },
-
-    created() {
-      this.mapGetTotal;
-      this.mapGetFlag;
-      this.mapGetEpilogue;
+    ...mapGetters(["mapGetTotal", "mapGetFlag", "mapGetEpilogue"]),
+    getTotalScore() {
+      let result = this.flagItem.selectA + this.flagItem.selectB + this.flagItem.selectC
+      return result
     }
-}
+  },
+  methods: {
+    ...mapActions(["setFlag"]),
+    ...mapMutations(["changeTotal", "changeFlag", "changeEpilogue"]),
+    onRadioChange() {
+      this.changeTotal(this.getTotalScore)
+      this.setFlag()
+      this.changeEpilogue()
+    }
+  }
+};
 </script>

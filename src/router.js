@@ -67,6 +67,11 @@ const router = new Router({
           name: 'VuexTempDetail',
           component: () => import('./components/VuexTempDetail.vue')
         },
+        {
+          path: 'Components',
+          name: 'Components',
+          component: () => import('./components/Components.vue')
+        }
       ]
     },
     {

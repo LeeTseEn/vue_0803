@@ -22,17 +22,16 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions, mapMutations } from "vuex"
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 export default {
   name: "VuexTemp",
   data() {
     return {
       total: 0,
-      flag: "",
-      epilogue: ""
+      flag: '',
+      endding: ''
     }
   },
-
   computed: {
     ...mapGetters([
       'mapGetTotal',
@@ -40,14 +39,18 @@ export default {
       'mapGetEpilogue'
     ])
   },
-
+  methods: {
+    ...mapActions([
+      'setMsg'
+    ]),
+    ...mapMutations([
+      'changeMsg'
+    ])
+  },
   created() {
-    this.mapGetTotal
-    this.total = this.$store.state.temp.total
-    this.flag = this.$store.state.temp.flag
-    this.endding = this.$store.state.temp.epilogue
-    console.log('total: ', this.total)
-    console.log('flag: ', this.flag)
+    this.total = this.mapGetTotal
+    this.flag = this.mapGetFlag
+    this.endding = this.mapGetEpilogue
   }
-}
+};
 </script>
