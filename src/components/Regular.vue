@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="container">
     <h1>正則表達式</h1>
     <p>利用線上正則工具撰寫以下表單驗證需求:</p>
     <p>

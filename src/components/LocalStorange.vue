@@ -1,5 +1,5 @@
 <template>
-  <div class="page el-customize">
+  <div class="container">
     <h1>Browser 暫存器</h1>
     <el-button type="primary" @click="setLocalStorange">SET</el-button>
     <el-button type="primary" @click="removeLocalStorange">Clear</el-button>

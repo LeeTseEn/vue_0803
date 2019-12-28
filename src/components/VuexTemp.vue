@@ -1,5 +1,5 @@
 <template>
-  <div class="page VueTemp">
+  <div class="container">
     <h1>各地食材</h1>
     <br />
     <div class="row vertical">

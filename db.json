@@ -16,5 +16,18 @@
   "profile": {
     "name": "typicode"
   },
-  "tableData": []
+  "tableData": [
+    {
+      "id": "124412",
+      "name": "4343",
+      "class": "341",
+      "date": "2019-11-27 00:00:00"
+    },
+    {
+      "id": "001",
+      "name": "fortes",
+      "class": "instructor",
+      "date": "2020-02-06 11:55:01"
+    }
+  ]
 }

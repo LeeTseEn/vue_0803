@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="container">
     <el-select v-model="tempSelect.selected" clearable @change="handleSelect">
       <el-option
         v-for="(item, index) in tempSelect.items"

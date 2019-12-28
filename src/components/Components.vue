@@ -1,5 +1,5 @@
 <template>
-  <div class="page components">
+  <div class="container">
     <br />
     <tabs
       :durationDisplay='true'

@@ -3,6 +3,7 @@
 @import "./commonStyle";
 @import "./flexbox";
 @import "./dataAttribute";
+@import "./container";
 
 
 body{
@@ -10,29 +11,23 @@ body{
 }
 
 .menu{
-    width: 100vw;
-    height: 10vh;
+    position: relative;
+    float: left;
+    padding-top: 5vh;
+    width: 15vw;
+    height: 100vh;
     background: $carrotOrange;
     li{
         @include boxSizing;
-        color: $riceWhite;
-        padding: 1vh 0.5vw;
-        margin: 0 5vw;
-        border: 1px solid $riceWhite;
+        padding: 2vh 0;
+        width: 100%;
+        a{
+          color: $riceWhite;  
+        }
     }
 }
 
 .container{
-    margin: 5vh 0;
-    input{
-        margin: 0 1%;
-    }
-    &:after{ 
-      content: "";
-      display: block;
-      padding: 1px;
-      margin: 2vh 0;
-      width: 100%;
-      background: $dark;
-    }
+    display: table;
+    padding: 5vh 5vw;
 }

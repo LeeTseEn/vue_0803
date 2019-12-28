@@ -1,12 +1,6 @@
 <template>
   <div class="page api_temp">
-    <ul class="menu row horizontal wrap center icon-sets" data-row-split="1">
-      <li>Home</li>
-      <li>Order</li>
-      <li>Message</li>
-      <li>Setting</li>
-    </ul>
-    <el-form label-width= "8rem" data-width= "20rem" data-space= "space-vertical">
+    <el-form label-width="8rem" data-width="20rem" data-space="space-vertical">
       <el-form-item label="ID">
         <el-input v-model="postObj.id" type="text" />
       </el-form-item>
@@ -17,11 +11,7 @@
         <el-input v-model="postObj.class" type="text" />
       </el-form-item>
       <el-form-item label="Date">
-        <el-date-picker
-        v-model="postObj.date"
-        type="datetime"
-        value-format="yyyy-MM-dd HH:mm:ss"
-        />
+        <el-date-picker v-model="postObj.date" type="datetime" value-format="yyyy-MM-dd HH:mm:ss" />
       </el-form-item>
       <div class="row horizontal v_cnter end">
         <el-button @click="packagePostData">Add Data(POST)</el-button>
@@ -35,54 +25,131 @@
       <el-table-column prop="date" label="Data" />
       <el-table-column label="Action" align="center" width="120">
         <template slot-scope="scope">
-          <el-button @click="delData(scope.row.id)">DELETE</el-button>
+          <el-button type="danger" @click="delCheck(scope.row.id)">DELETE</el-button>
+          <el-button type="warning" @click="openEditDialog(scope.row)">EDIT</el-button>
         </template>
       </el-table-column>
     </el-table>
+
+    <el-dialog title="編輯" :visible.sync="editDialog">
+      <el-form label-width="8rem" data-width="20rem" data-space="space-vertical">
+        <el-form-item label="ID">
+          <el-input v-model="editForm.id" type="text" />
+        </el-form-item>
+        <el-form-item label="Name">
+          <el-input v-model="editForm.name" type="text" />
+        </el-form-item>
+        <el-form-item label="Class">
+          <el-input v-model="editForm.class" type="text" />
+        </el-form-item>
+        <el-form-item label="Date">
+          <el-date-picker
+            v-model="editForm.date"
+            type="datetime"
+            value-format="yyyy-MM-dd HH:mm:ss"
+          />
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="editDialog = false">取消</el-button>
+        <el-button type="primary" @click="updateData">送出</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
 <script>
+import { truncate } from 'fs'
 export default {
-  name: "apiTemp",
+  name: 'ApiTemp',
   data() {
     return {
       tableData: [],
-      pickTime:'',
+      pickTime: '',
       postObj: {
         id: '',
         name: '',
         class: '',
         date: ''
-      }
-    };
+      },
+      editForm: {},
+      editDialog: false
+    }
   },
 
   created() {
-    this.getData();
+    this.getData()
   },
 
   methods: {
     async getData() {
-      const source = "http://localhost:3000/tableData";
-      let res = await this.$api.get(source);
-      this.tableData = [...res];
-      console.log(res);
+      const source = 'http://localhost:3000/tableData?_sort=id'
+      const res = await this.$api.get(source)
+      this.tableData = [...res]
+      console.log(res)
     },
 
     async packagePostData() {
-      const source = "http://localhost:3000/tableData"
+      const source = 'http://localhost:3000/tableData'
       await this.$api.post(source, this.postObj)
       this.getData()
       console.log(source.data)
     },
-    
+
     async delData(id) {
-      const source = "http://localhost:3000/tableData/" + `${id}`
+      const source = 'http://localhost:3000/tableData/' + `${id}`
       await this.$api.delete(source)
       this.getData()
       console.log(this.tableData)
     },
+
+    openEditDialog(obj) {
+      this.editDialog = true
+      this.editForm = { ...obj }
+      console.log('edit obj: ', this.editForm)
+    },
+
+    async updateData(event) {
+      console.log(event)
+      const id = this.editForm.id
+      const source = 'http://localhost:3000/tableData/' + `${id}`
+      try {
+        await this.$api.put(source, this.editForm)
+        this.$message({
+          message: '編輯成功',
+          type: 'success'
+        })
+        this.editDialog = false
+        console.log(' ID ' + id + ' 編輯成功 ')
+      }
+      catch {
+        this.$message.error('編輯失敗')
+      }
+      this.getData()
+    },
+
+    async delCheck(id) {
+      try {
+        await this.$confirm(
+          '將會刪除資料，是否繼續?', '刪除資料', {
+            confirmButtonText: '確認刪除',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }
+        )
+        await this.delData(id)
+        this.$message({
+          message: '刪除成功',
+          type: 'success'
+        })
+      }
+      catch {
+        this.$message({
+          message: '已取消刪除',
+          type: 'info'
+        })
+      }
+    }
   }
-};
+}
 </script>

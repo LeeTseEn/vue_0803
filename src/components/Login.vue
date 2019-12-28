@@ -1,5 +1,5 @@
 <template>
- <div class="page el-customize">
+ <div class="container">
     <h1>Login</h1>
     <ul>
       <li>登入表單儲存使用者資料與向server side取得的token</li>

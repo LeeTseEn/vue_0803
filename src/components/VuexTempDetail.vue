@@ -1,5 +1,5 @@
 <template>
-  <div class="page VueTempDetail">
+  <div class="container">
     <br />
       <el-button @click="$router.go(-1)">GO Back</el-button>
     <br />

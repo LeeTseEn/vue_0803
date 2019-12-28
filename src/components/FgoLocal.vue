@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="container">
     <!-- <h1>Local Storange</h1>
     <p>Auto Save 自動儲存</p>
 

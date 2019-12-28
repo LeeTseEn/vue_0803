@@ -1,5 +1,5 @@
 <template>
-  <div class="page VueI18n">
+  <div class="container">
     <div class=" row horizontal v_center">
       <el-form style="width: 500px">
         <el-form-item label="選擇語言">

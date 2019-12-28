@@ -1,5 +1,5 @@
 <template>
-  <div class="page el-customize">
+  <div class="container">
     <h1>正則表單驗證範例</h1>
     <el-form :model="form" :rules="rules" ref="loginForm">
       <el-form-item label="URL" prop="url">

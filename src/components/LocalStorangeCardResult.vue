@@ -1,5 +1,5 @@
 <template>
-  <div class="page el-customize">
+  <div class="container">
     <el-button type="primary" @click="$router.go(-1)">BACK</el-button>
     <h1>暫存器撈回資料</h1>
     <!-- <el-button type="primary" @click="getLocalStorange">GET</el-button> -->

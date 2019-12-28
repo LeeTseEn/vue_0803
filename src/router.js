@@ -13,62 +13,62 @@ const router = new Router({
       component: Home,
       children:[
         {
-          path: '/data-event',
+          path: '/DataEvent',
           name: 'DataEvent',
           component: () => import('./components/DataEvent.vue')
         },
         {
-          path: '/ca-chya',
+          path: '/CaChya',
           name: 'CaChya',
           component: () => import('./components/CaChya.vue')
         },
         {
-          path: 'localstorange',
+          path: '/LocalStorange',
           name: 'LocalStorange',
           component: () => import('./components/LocalStorange.vue'),
         },
         {
-          path: 'localstorange_card_result',
+          path: '/LocalStorangeCardResult',
           name: 'LocalStorangeCardResult',
           component: () => import('./components/LocalStorangeCardResult.vue')
         },
         {
-          path: 'LogIn',
+          path: '/LogIn',
           name: 'LogIn',
           component: () => import('./components/Login.vue')
         },
         {
-          path: 'FgoLocal',
+          path: '/FgoLocal',
           name: 'FgoLocal',
           component: () => import('./components/FgoLocal.vue')
         },
         {
-          path: 'Regexp',
+          path: '/Regexp',
           name: 'Regexp',
           component: () => import('./components/Regexp.vue')
         },
         {
-          path: 'Regular',
+          path: '/Regular',
           name: 'Regular',
           component: () => import('./components/Regular.vue')
         },
         {
-          path: 'VueI18n',
+          path: '/VueI18n',
           name: 'VueI18n',
           component: () => import('./components/VueI18n.vue')
         },
         {
-          path: 'VuexTemp',
+          path: '/VuexTemp',
           name: 'VuexTemp',
           component: () => import('./components/VuexTemp.vue')
         },
         {
-          path: 'VuexTempDetail',
+          path: '/VuexTempDetail',
           name: 'VuexTempDetail',
           component: () => import('./components/VuexTempDetail.vue')
         },
         {
-          path: 'Components',
+          path: '/Components',
           name: 'Components',
           component: () => import('./components/Components.vue')
         }
