@@ -102,9 +102,6 @@ export default {
       let getForm = JSON.parse(localStorage.getItem('form'))
       this.form = getForm
     },
-
-
-    
     // 重置表單
 
     handleReset(obj) {
@@ -132,7 +129,6 @@ export default {
 
   computed: {}
 };
-
 
 </script>
 
